@@ -24,7 +24,8 @@ public class OperacionesFicheros {
     
 
 
-
+    
+//Metodo que lee un fichero csv y extrae la informacion 
     public void leerFichero(GastoMilitarPaisesXAño listaPaises) {
 
 // Declarar una variable BufferedReader

@@ -129,8 +129,11 @@ public class OperacionesFicheros {
     public void guardarFichero(GastoMilitarPaisesXAño listaPaises) throws IOException {
 
         String nombreFichero = "GastoMilitarMaximo.csv";
-        String texto = "Pais,Año,GastoMilitarMaximo";
-        
+        String texto = "Country,Year,Maximum Miitary Spend";
+        String pais;
+        String año;
+        String gastoMilitarMaximo;
+        String[] valores=new String[1];
         BufferedWriter bw = new BufferedWriter(new FileWriter(nombreFichero));
         
         bw.write(texto + "\n");
@@ -140,30 +143,24 @@ public class OperacionesFicheros {
         try {
             //Crear un objeto BufferedWriter. Si ya existe el fichero, 
             //  se borra automáticamente su contenido anterior.
-            bw = new BufferedWriter(new FileWriter(nombreFichero));
-            
+            System.out.println("esto contiene el texto antes del bucle: " + texto);
             //Escribir en el fichero el texto con un salto de línea
             for (int i = 0; i < listaPaises.getpaisesXAño().size(); i++) {
             
-            System.out.println("Mostrando Nombre del pais: " + i );
-            texto = listaPaises.getpaisesXAño().get(i).getPais();
-            
-                for (int j = 0; j < listaPaises.getpaisesXAño().get(i).getAnnoGastoMilitar().size(); j++) {
-
-                    System.out.println("Mostrando años y gasto militar:");
-                    System.out.println(String.valueOf(listaPaises.getpaisesXAño().get(i).getAnnoGastoMilitar().get(j).getAnno()) +" "+
-                            String.valueOf(listaPaises.getpaisesXAño().get(i).getAnnoGastoMilitar().get(j).getGastoMilitar()));
-                    texto = texto +"," + String.valueOf(listaPaises.getpaisesXAño().get(i).getAnnoGastoMilitar().get(j).getAnno())+","+
-                            String.valueOf(listaPaises.getpaisesXAño().get(i).getAnnoGastoMilitar().get(j).getGastoMilitar());
-
-                }
-            
-        }
-            
-            bw.write(texto + "\n");
-            
+                System.out.println("Mostrando Nombre del pais: " + i );
+                pais= listaPaises.getpaisesXAño().get(i).getPais();
+                texto = pais;
+                valores=listaPaises.getpaisesXAño().get(i).getGastoMilitarMaximo();
+                año=valores[0];
+                gastoMilitarMaximo=valores[1];
+                texto = texto +","+año+","+gastoMilitarMaximo;
+                System.out.println("texto dentro del bucle vale: " +texto);
+                bw.write(texto + "\n");
+                texto="";
+            }    
+                        
         } // Comprobar si se ha producido algún error
-        catch (Exception ex) {
+        catch (IOException ex) {
             System.out.println("Error de escritura del fichero");
             ex.printStackTrace();
         } // Asegurar el cierre del fichero en cualquier caso

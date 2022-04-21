@@ -31,12 +31,10 @@ public class AnnoGastoMilitar {
     }
     
     
-//    Collections.sort(personas, new Comparator<Persona>() {
-//	@Override
-//	public int compare(Persona p1, Persona p2) {
-//		return new Integer(p1.getEdad()).compareTo(new Integer(p2.getEdad()));
-//	}
-//});
-//     
+    
+    
+
+
+     
     
 }

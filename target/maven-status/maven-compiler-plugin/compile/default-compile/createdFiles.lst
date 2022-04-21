@@ -1,2 +1,6 @@
+es\felixgomezenriquez\csv\GastoMilitarPaisesXAño.class
+es\felixgomezenriquez\csv\OperacionesFicheros.class
+es\felixgomezenriquez\csv\AnnoGastoMilitar.class
+es\felixgomezenriquez\csv\LayoutTabla.class
 module-info.class
-es\felixgomezenriquez\csv\App.class
+es\felixgomezenriquez\csv\GastoMilitar.class

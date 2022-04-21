@@ -43,6 +43,24 @@ public class GastoMilitar {
     }
     
     
+    //metodo que duvuelve el año y el gasto militar maximo
+    
+    public String[] getGastoMilitarMaximo() {
+        //primera posicion del array es el año
+        //segunda posicion del array es el gastomilitar
+        String[] valores =new String[2];
+        long gastoMilitarMax = Integer.MIN_VALUE;
+        for (int i = 0; i < this.getAnnoGastoMilitar().size(); i++) {
+            if (this.getAnnoGastoMilitar().get(i).getGastoMilitar() > gastoMilitarMax) {
+                gastoMilitarMax = this.getAnnoGastoMilitar().get(i).getGastoMilitar();
+                valores[0]=String.valueOf(this.getAnnoGastoMilitar().get(i).getAnno());
+                valores[1]=String.valueOf(gastoMilitarMax);
+            }
+        }
+        return valores;
+    }
+    
+    
     public String toString(int id) {
         String r = "";
         r += "Pais: " + pais + "\n";

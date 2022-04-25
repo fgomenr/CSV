@@ -45,7 +45,7 @@ public class GastoMilitar {
     
     //metodo que duvuelve el año y el gasto militar maximo
     
-    public String[] getGastoMilitarMaximo() {
+    public String[] getAnnoGastoMilitarMaximo() {
         //primera posicion del array es el año
         //segunda posicion del array es el gastomilitar
         String[] valores =new String[2];

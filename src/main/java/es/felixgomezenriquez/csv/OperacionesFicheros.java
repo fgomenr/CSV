@@ -150,7 +150,7 @@ public class OperacionesFicheros {
                 System.out.println("Mostrando Nombre del pais: " + i );
                 pais= listaPaises.getpaisesXAño().get(i).getPais();
                 texto = pais;
-                valores=listaPaises.getpaisesXAño().get(i).getGastoMilitarMaximo();
+                valores=listaPaises.getpaisesXAño().get(i).getAnnoGastoMilitarMaximo();
                 año=valores[0];
                 gastoMilitarMaximo=valores[1];
                 texto = texto +","+año+","+gastoMilitarMaximo;

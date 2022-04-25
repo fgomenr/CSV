@@ -2,6 +2,7 @@ package es.felixgomezenriquez.csv;
 
 import java.io.IOException;
 import javafx.application.Application;
+import javafx.beans.InvalidationListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -15,6 +16,7 @@ import org.controlsfx.control.CheckComboBox;
  */
 public class App extends Application {
 
+    
     @Override
     public void start(Stage stage) {
         BorderPane root = new BorderPane();
@@ -39,19 +41,10 @@ public class App extends Application {
             ex.printStackTrace();
         }
         
+        LayoutCheckComboBox checkComboBox = new LayoutCheckComboBox(listaPaises);
         
-        final ObservableList<String> strings = FXCollections.observableArrayList();
-        for (int i = 0; i <= 100; i++) {
-            strings.add("Item " + i);
-        }
-
-        final CheckComboBox<String> checkComboBox = new CheckComboBox<String>(strings);
-        checkComboBox.getCheckModel().getSelectedItems().addListener(new ListChangeListener<String>() {
-            public void onChanged(ListChangeListener.Change<? extends String> c) {
-                System.out.println(checkComboBox.getCheckModel().getSelectedItems());
-            }
-        });
-    
+        root.setRight(checkComboBox);
+        
  
 
         //INFORMACION DE EL GASTO MILITAR POR AÑO DE CADA PAIS

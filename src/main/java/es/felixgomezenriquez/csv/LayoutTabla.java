@@ -46,7 +46,6 @@ public class LayoutTabla extends TableView<GastoMilitarSeleccionados> {
        
        this.setItems(oPaisesSeleccionados);
         
-        
     }
     
 }

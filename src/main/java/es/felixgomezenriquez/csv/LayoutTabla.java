@@ -5,6 +5,9 @@
  */
 package es.felixgomezenriquez.csv;
 
+import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -13,7 +16,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
  *
  * @author usuario
  */
-public class LayoutTabla extends TableView<String> {
+public class LayoutTabla extends TableView<GastoMilitarSeleccionados> {
     
     
     public LayoutTabla(){
@@ -27,19 +30,23 @@ public class LayoutTabla extends TableView<String> {
         TableColumn gastoMilitarMaximo = new TableColumn("Maximum Miitary Spend");  
 
         this.getColumns().addAll(pais, año, gastoMilitarMaximo); 
-        
-        pais.setCellValueFactory(new PropertyValueFactory<>("pais"));
-        año.setCellValueFactory(new PropertyValueFactory<>("AnnoGastoMilitar"));
-        pais.setCellValueFactory(new PropertyValueFactory<>("AnnoGastoMilitar"));
+        pais.setMinWidth(100);
+        año.setMinWidth(100);
+        gastoMilitarMaximo.setMinWidth(100);
+        pais.setCellValueFactory(new PropertyValueFactory<GastoMilitarSeleccionados,String>("pais"));
+        año.setCellValueFactory(new PropertyValueFactory<GastoMilitarSeleccionados,String>("anno"));
+        gastoMilitarMaximo.setCellValueFactory(new PropertyValueFactory<GastoMilitarSeleccionados,String>("gastoMilitar"));
     }
     
 
-    static public void ActualizarTabla(String pais,String anno, String gastoMilitarMaximo){
+    public void ActualizarTabla(ArrayList paisesSeleccionados){
+       this.getItems().clear();
+       ObservableList<GastoMilitarSeleccionados> oPaisesSeleccionados =
+               FXCollections.observableArrayList(paisesSeleccionados);
+       
+       this.setItems(oPaisesSeleccionados);
         
-        //Da problemas metodo statico de layoutCHeck box ese maricon
         
-          LayoutTabla.getItems().add(0,pais);
-    
     }
     
 }

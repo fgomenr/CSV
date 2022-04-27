@@ -5,6 +5,7 @@
  */
 package es.felixgomezenriquez.csv;
 
+import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -17,9 +18,12 @@ import org.controlsfx.control.CheckComboBox;
  */
 public class LayoutCheckComboBox extends VBox{
     
-    public static GastoMilitarPaisesXAño listaPaises= new GastoMilitarPaisesXAño();
+    private static GastoMilitarPaisesXAño listaPaises= new GastoMilitarPaisesXAño();
+    
+    private ArrayList<GastoMilitarSeleccionados> paisesSeleccion = new ArrayList();
 
-    public LayoutCheckComboBox(GastoMilitarPaisesXAño listaPaises ){
+
+    public LayoutCheckComboBox(GastoMilitarPaisesXAño listaPaises, LayoutTabla tabla){
         
         this.listaPaises=listaPaises;
         final ObservableList<String> opciones = FXCollections.observableArrayList();
@@ -33,27 +37,44 @@ public class LayoutCheckComboBox extends VBox{
                 
                 ObservableList<Integer> selectedIndices = checkComboBox.getCheckModel().getCheckedIndices();
                 
+                paisesSeleccion.clear();
                 
-                for (int i = 0; i < LayoutCheckComboBox.listaPaises.getpaisesXAño().size(); i++) {
+                for (Integer selectedIndice : selectedIndices) {
                     
-                    String pais= listaPaises.getpaisesXAño().get(i).getPais();
-                    String[] valores = listaPaises.getpaisesXAño().get(i).getAnnoGastoMilitarMaximo();
-                    String anno = valores[0];
-                    String gastoMilitarMaximo= valores[1];
+                    System.out.println(selectedIndice);
                     
-                    LayoutTabla.ActualizarTabla(pais,anno,gastoMilitarMaximo);
+                    String pais= listaPaises.getpaisesXAño().get(selectedIndice).getPais();
                     
+                    String anno= String.valueOf(listaPaises.getpaisesXAño().
+                            get(selectedIndice).getAnnoGastoMilitarMaximo()[0]);
+                    
+                    String gastoMilitar=String.valueOf(listaPaises.getpaisesXAño().
+                            get(selectedIndice).getAnnoGastoMilitarMaximo()[1]);
+                    
+                    
+                    GastoMilitarSeleccionados gastoMilitarSeleccionados= new GastoMilitarSeleccionados(pais,anno, gastoMilitar);
+                    
+                    paisesSeleccion.add(gastoMilitarSeleccionados);
+                        
                 }
-                
-                System.out.println(checkComboBox.getCheckModel().getCheckedIndices());
-                
-                
+                for (int i = 0; i < paisesSeleccion.size(); i++) {
+                    System.out.println("");
+                System.out.println(paisesSeleccion.get(i).getPais());
+                System.out.println(paisesSeleccion.get(i).getAnno());
+                System.out.println(paisesSeleccion.get(i).getGastoMilitar());
+                System.out.println("");
+                }                    
+
+               tabla.ActualizarTabla(paisesSeleccion);
+          
                 
             }
         });
         
-        
-    
+        checkComboBox.setTitle("List of countries");
+        checkComboBox.maxHeight(100);
+        this.maxHeight(100);
+        this.maxWidth(100);
         this.getChildren().add(checkComboBox);
     
     

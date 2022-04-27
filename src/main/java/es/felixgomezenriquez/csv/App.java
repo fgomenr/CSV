@@ -20,15 +20,17 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         BorderPane root = new BorderPane();
-        var scene = new Scene(root, 640, 480);
+        var scene = new Scene(root, 800, 600);
         stage.setScene(scene);
         stage.show();
 
         GastoMilitarPaisesXAño listaPaises= new GastoMilitarPaisesXAño();
         
+        
         OperacionesFicheros op=new OperacionesFicheros();
         
         LayoutTabla tabla =new LayoutTabla();
+        
         
         root.setCenter(tabla);
                 
@@ -41,7 +43,7 @@ public class App extends Application {
             ex.printStackTrace();
         }
         
-        LayoutCheckComboBox checkComboBox = new LayoutCheckComboBox(listaPaises);
+        LayoutCheckComboBox checkComboBox = new LayoutCheckComboBox(listaPaises,tabla);
         
         root.setRight(checkComboBox);
         

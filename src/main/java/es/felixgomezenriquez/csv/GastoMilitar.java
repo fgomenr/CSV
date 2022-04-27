@@ -15,10 +15,11 @@ public class GastoMilitar {
     
     private String pais;
     private String codigo;
-    //Arrraylist anno gasto militar
     
+    //Arrraylist anno gasto militar
     private ArrayList<AnnoGastoMilitar> annoGastoMilitar = new ArrayList();
       
+    
     
     public String getPais(){
         return this.pais;

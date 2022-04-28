@@ -1,26 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package es.felixgomezenriquez.csv;
 
-/**
- *
- * @author usuario
- */
+
 public class GastoMilitarSeleccionados {
-    
+
     private String pais;
     private String anno;
     private String gastoMilitar;
-    
-    public GastoMilitarSeleccionados(String pais,String anno,String gastoMilitar){
-    
-        this.pais=pais;
-        this.anno=anno;
-        this.gastoMilitar=gastoMilitar;
-    
+
+    public GastoMilitarSeleccionados(String pais, String anno, String gastoMilitar) {
+
+        this.pais = pais;
+        this.anno = anno;
+        this.gastoMilitar = gastoMilitar;
+
     }
 
     public String getPais() {
@@ -46,5 +38,5 @@ public class GastoMilitarSeleccionados {
     public void setGastoMilitar(String gastoMilitar) {
         this.gastoMilitar = gastoMilitar;
     }
-    
+
 }

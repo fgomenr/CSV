@@ -1,6 +1,9 @@
 package es.felixgomezenriquez.csv;
 
 
+//Esta clase solo guarda los datos de los gastos militares de los paises seleccionados.
+//Y solo guarda 3 valores, para facilitarnos el trabajo a la hora de crear la tabla
+//tiene sus metodos set y gets como todas las clases con atributos privados
 public class GastoMilitarSeleccionados {
 
     private String pais;

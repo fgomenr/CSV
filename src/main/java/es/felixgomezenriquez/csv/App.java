@@ -47,11 +47,14 @@ public class App extends Application {
         root.setRight(checkComboBox);
 
         
-        //INFORMACION DE EL GASTO MILITAR POR AÑO DE CADA PAIS
+        //INFORMACION DE EL GASTO MILITAR POR AÑO DE CADA PAIS 
+        //para comprobar que se han guardado correctamente los datos en los 2
+        //arraylist
         for (int i = 0; i < listaPaises.getpaisesXAño().size(); i++) {
 
             System.out.println("Mostrando Nombre del pais: " + i);
             System.out.println(listaPaises.getpaisesXAño().get(i).getPais());
+            System.out.println("");
 
             for (int j = 0; j < listaPaises.getpaisesXAño().get(i).getAnnoGastoMilitar().size(); j++) {
 
@@ -60,7 +63,13 @@ public class App extends Application {
                         + String.valueOf(listaPaises.getpaisesXAño().get(i).getAnnoGastoMilitar().get(j).getGastoMilitar()));
 
             }
+            System.out.println("");
         }
+        
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("ELIGE UN PAIS");
+        alert.setHeaderText("Elige un pais para ver en que año tuvo su gasto militar máximo");
+        alert.showAndWait();
 
     }
 

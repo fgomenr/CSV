@@ -101,7 +101,7 @@ public class OperacionesFicheros {
                     paisAnterior= paisActual;
                     
                 }
-                
+                System.out.println("");
                 // Leer la siguiente línea
                 texto = br.readLine();
                 
@@ -161,26 +161,21 @@ public class OperacionesFicheros {
         texto="";
 
         try {
-            //Crear un objeto BufferedWriter. Si ya existe el fichero, 
-            //  se borra automáticamente su contenido anterior.
-            System.out.println("esto contiene el texto antes del bucle: " + texto);
-            
             //Escribir en el fichero el texto con un salto de línea
             //En este bucle hacemos una iteracion por cada pais de la lista y usamos el metodo 
             //getannogastomilitar maximo que devuelve un array con 2 valores el año y el gastomilitar
-            //de ese año, y formamos un string con un salto de linea alfinal y lo escribimos en el fichero 
+            //de ese año, y formamos un string con un salto de linea al final y lo escribimos en el fichero 
             
             for (int i = 0; i < listaPaises.getpaisesXAño().size(); i++) {
             
-                System.out.println("Mostrando Nombre del pais: " + i );
                 pais= listaPaises.getpaisesXAño().get(i).getPais();
                 texto = pais;
                 valores=listaPaises.getpaisesXAño().get(i).getAnnoGastoMilitarMaximo();
                 año=valores[0];
                 gastoMilitarMaximo=valores[1];
                 texto = texto +","+año+","+gastoMilitarMaximo;
-                System.out.println("texto dentro del bucle vale: " +texto);
                 bw.write(texto + "\n");
+                //Alfinal borramos el contenido de la variable texto
                 texto="";
             }    
                         

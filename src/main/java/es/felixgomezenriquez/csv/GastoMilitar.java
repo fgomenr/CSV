@@ -3,13 +3,15 @@ package es.felixgomezenriquez.csv;
 
 import java.util.ArrayList;
 
-
+//Esta clase contiene la informacion de los gastos militares de cada pais con un arraylist 
+//para cada año y cada gasto militar de cada pais.
 public class GastoMilitar {
 
     private String pais;
     private String codigo;
 
-    //Arrraylist anno gasto militar
+    //Arrraylist anno gasto militar que guarda la informacion de cada año y cada gasto militar
+    //para posteriormente si se quieren mostrar otros datos en la tabla o de la forma que sea
     private ArrayList<AnnoGastoMilitar> annoGastoMilitar = new ArrayList();
 
     public String getPais() {
@@ -36,7 +38,8 @@ public class GastoMilitar {
         this.annoGastoMilitar = annoGastoMilitar;
     }
 
-    //metodo que duvuelve el año y el gasto militar maximo
+    //Metodo que duvuelve el año y el gasto militar maximo.
+    
     public String[] getAnnoGastoMilitarMaximo() {
         //primera posicion del array es el año
         //segunda posicion del array es el gastomilitar
